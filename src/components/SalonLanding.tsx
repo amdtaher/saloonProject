@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import {
   ArrowUp,
   ArrowUpRight,
@@ -168,6 +171,8 @@ export function SalonLanding() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [activeBlog, setActiveBlog] = useState<BlogKey | null>(null);
   const [showTop, setShowTop] = useState(false);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const testimonialTrackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const saved = window.localStorage.getItem("veloura-theme") as Theme | null;
@@ -180,25 +185,34 @@ export function SalonLanding() {
   }, [theme]);
 
   useEffect(() => {
-    const revealItems = document.querySelectorAll(".reveal-left, .reveal-right, .reveal-up");
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
-      revealItems.forEach((item) => item.classList.add("is-visible"));
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
+    if (typeof window === "undefined") return;
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    const ctx = gsap.context(() => {
+      const revealItems = gsap.utils.toArray(".reveal-left, .reveal-right, .reveal-up") as HTMLElement[];
+      revealItems.forEach((element) => {
+        gsap.set(element, {
+          opacity: 0,
+          x: element.classList.contains("reveal-left") ? -34 : element.classList.contains("reveal-right") ? 34 : 0,
+          y: element.classList.contains("reveal-up") ? 34 : 0,
         });
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
-    );
-    revealItems.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
+
+        gsap.to(element, {
+          scrollTrigger: {
+            trigger: element,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+        });
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -208,9 +222,25 @@ export function SalonLanding() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!testimonialTrackRef.current) return;
+    gsap.to(testimonialTrackRef.current, {
+      xPercent: -testimonialIndex * 100,
+      duration: 0.8,
+      ease: "power2.out",
+    });
+  }, [testimonialIndex]);
+
   const scrollTo = (id: string) => {
     setMenuOpen(false);
-    document.querySelector(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const target = document.querySelector(id);
+    if (target) {
+      gsap.to(window, {
+        duration: 0.8,
+        scrollTo: { y: target, offsetY: 84 },
+        ease: "power2.out",
+      });
+    }
   };
 
   const chooseService = (service: string) => {
@@ -219,7 +249,7 @@ export function SalonLanding() {
   };
 
   return (
-    <main className="overflow-hidden selection:bg-[#c89a52] selection:text-[#18120f]">
+    <main ref={containerRef} className="overflow-hidden selection:bg-[#c89a52] selection:text-[#18120f]">
       <header className="surface fixed left-1/2 top-3 z-50 flex w-[min(1180px,calc(100%-24px))] -translate-x-1/2 items-center justify-between gap-3 rounded-full border border-white/10 bg-[#18120f]/80 p-2 shadow-[0_18px_70px_rgba(11,7,5,.45)] backdrop-blur-xl motion">
         <button onClick={() => scrollTo("#home")} className="flex items-center gap-3 rounded-full motion hover:-translate-y-0.5" type="button">
           <span className="grid h-11 w-11 place-items-center rounded-full border border-[#c89a52]/60 bg-white/10 font-black text-[#e4c277]">V</span>
@@ -325,7 +355,7 @@ export function SalonLanding() {
         <div className="reveal-up mx-auto max-w-3xl text-center"><p className="mb-3 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]">Testimonials</p><h2 className="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Clients leave ready for the week.</h2></div>
         <div className="reveal-up mx-auto mt-12 max-w-4xl">
           <div className="surface overflow-hidden rounded-[30px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)]">
-            <div className="flex motion" style={{ transform: `translateX(-${testimonialIndex * 100}%)` }}>
+            <div ref={testimonialTrackRef} className="flex motion">
               {testimonialSlides.map((slide, slideIndex) => (
                 <div key={slideIndex} className="grid min-w-full gap-5 p-5 md:grid-cols-2 sm:p-6">
                   {slide.map((review) => (
@@ -385,7 +415,7 @@ export function SalonLanding() {
         <div className="muted mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between"><p>Â© 2026 Veloura Salon Atelier. All rights reserved.</p><p>Designed for booking-first salon experiences.</p></div>
       </footer>
 
-      <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className={`motion fixed bottom-5 right-5 z-50 h-12 w-12 place-items-center rounded-full border border-white/10 bg-[#e4c277] text-[#18120f] shadow-[0_18px_44px_rgba(11,7,5,.35)] hover:-translate-y-1 ${showTop ? "grid" : "hidden"}`} aria-label="Back to top" type="button"><ArrowUp /></button>
+      <button onClick={() => gsap.to(window, { duration: 0.8, scrollTo: { y: 0 }, ease: "power2.out" })} className={`motion fixed bottom-5 right-5 z-50 h-12 w-12 place-items-center rounded-full border border-white/10 bg-[#e4c277] text-[#18120f] shadow-[0_18px_44px_rgba(11,7,5,.35)] hover:-translate-y-1 ${showTop ? "grid" : "hidden"}`} aria-label="Back to top" type="button"><ArrowUp /></button>
     </main>
   );
 }

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "latest",
+    "gsap": "latest",
     "lucide-react": "latest",
     "next": "^16.2.6",
     "react": "^19.2.6",

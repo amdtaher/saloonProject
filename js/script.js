@@ -16,7 +16,8 @@ const blogTitle = document.querySelector('#blogTitle');
 const blogBody = document.querySelector('#blogBody');
 const blogClose = document.querySelector('#blogClose');
 const toTopButton = document.querySelector('#toTopButton');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reduceMotion = prefersReducedMotion;
 
 const blogContent = {
   cuts: {
@@ -85,9 +86,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 const revealItems = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
-if (reduceMotion) {
-  revealItems.forEach((item) => item.classList.add('is-visible'));
-} else {
+if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -97,6 +96,8 @@ if (reduceMotion) {
     });
   }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
   revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
 document.querySelectorAll('.service-option').forEach((card) => {
