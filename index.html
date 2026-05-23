@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veloura Salon | Salon Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-[#18120f] text-[#fff7ec] font-body antialiased motion selection:bg-[#c89a52] selection:text-[#18120f]">
+  <header class="fixed left-1/2 top-3 z-50 flex w-[min(1180px,calc(100%-24px))] -translate-x-1/2 items-center justify-between gap-3 rounded-full border border-white/10 bg-[#18120f]/80 p-2 shadow-[0_18px_70px_rgba(11,7,5,.45)] backdrop-blur-xl motion light-mode:bg-[#fffaf3]/85 light-mode:text-[#211915]">
+    <a href="#home" class="flex items-center gap-3 rounded-full motion hover:-translate-y-0.5">
+      <span class="grid h-11 w-11 place-items-center rounded-full border border-[#c89a52]/60 bg-white/10 font-black text-[#e4c277]">V</span>
+      <span class="leading-none">
+        <span class="block font-display text-xl font-black">Veloura</span>
+        <span class="hidden text-[10px] font-black uppercase tracking-[.28em] text-[#e4c277] sm:block">Salon Atelier</span>
+      </span>
+    </a>
+
+    <nav id="siteNav" class="site-nav hidden items-center gap-6 text-sm font-extrabold text-white/70 md:flex">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#team">Barbers</a>
+      <a class="nav-link" href="#testimonials">Reviews</a>
+      <a class="nav-link" href="#booking">Booking</a>
+      <a class="nav-link" href="#blogs">Blogs</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button id="themeToggle" type="button" class="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] motion hover:-translate-y-0.5 hover:border-[#c89a52]/60" aria-label="Toggle theme"><i data-lucide="sun"></i></button>
+      <a href="#booking" class="hidden rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-5 py-3 text-sm font-black text-[#18120f] shadow-[0_16px_36px_rgba(200,154,82,.25)] motion hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(200,154,82,.38)] sm:inline-flex">Book Now</a>
+      <button id="menuButton" type="button" class="hamburger grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 motion hover:-translate-y-0.5 hover:border-[#c89a52]/60 md:hidden" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="home" class="overflow-hidden">
+    <section class="relative grid min-h-screen items-center px-5 pb-16 pt-32 sm:px-8 lg:px-10">
+      <div class="section-accent accent-hero" aria-hidden="true"><i data-lucide="scissors"></i><i data-lucide="sparkles"></i><span></span><span></span></div>
+      <div class="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[.95fr_1.05fr]">
+        <div class="reveal-left relative z-10 text-center lg:text-left">
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[.18em] text-[#e4c277] backdrop-blur motion hover:-translate-y-0.5 hover:border-[#c89a52]/60"><i data-lucide="sparkles" class="h-4 w-4"></i> Cuts, color, grooming</div>
+          <h1 class="font-display text-[clamp(42px,6vw,80px)] font-black leading-[.98] tracking-normal text-balance">A polished salon visit, made easy to book.</h1>
+          <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/70 lg:mx-0">Precision cuts, dimensional color, beard sculpting, and consultation-first service for clients who want to look sharp without guessing.</p>
+          <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+            <a href="#booking" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-6 font-black text-[#18120f] shadow-[0_22px_70px_rgba(200,154,82,.25)] motion hover:-translate-y-1 hover:shadow-[0_26px_72px_rgba(200,154,82,.38)]">Reserve Chair <i data-lucide="arrow-up-right" class="h-5 w-5"></i></a>
+            <a href="#services" class="inline-flex min-h-14 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 font-black text-white backdrop-blur motion hover:-translate-y-1 hover:border-[#c89a52]/60 hover:bg-white/15">View Services</a>
+          </div>
+        </div>
+        <div class="reveal-right relative min-h-[430px] lg:min-h-[620px]">
+          <img class="absolute left-[8%] top-[5%] h-[78%] w-[78%] rounded-[30px] border border-white/10 object-cover shadow-[0_34px_100px_rgba(11,7,5,.46)] motion hover:scale-[1.015]" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1300&q=88" alt="Elegant salon interior" />
+          <img class="absolute right-0 top-0 w-[38%] rounded-3xl border-[7px] border-[#241a15] object-cover shadow-2xl motion hover:-translate-y-2 hover:rotate-2" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=520&q=86" alt="Salon tools" />
+          <img class="absolute bottom-0 left-0 w-[42%] rounded-3xl border-[7px] border-[#241a15] object-cover shadow-2xl motion hover:translate-y-2 hover:-rotate-2" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=520&q=86" alt="Barber styling hair" />
+        </div>
+      </div>
+    </section>
+
+
+    <section id="about" class="relative px-5 py-24 sm:px-8 lg:px-10">
+      <div class="section-accent accent-about" aria-hidden="true"><i data-lucide="gem"></i><i data-lucide="clock-3"></i><span></span></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+        <div class="reveal-left relative"><img class="aspect-[.9] w-full rounded-[30px] border border-white/10 object-cover shadow-[0_34px_100px_rgba(11,7,5,.42)] motion hover:scale-[1.015]" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1000&q=86" alt="Salon artist styling hair" /></div>
+        <div class="reveal-right"><p class="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><i data-lucide="gem" class="h-4 w-4"></i> About Veloura</p><h2 class="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Designed like a private atelier. Run like a serious business.</h2><p class="mt-6 max-w-2xl leading-8 text-white/70">Veloura pairs editorial taste with practical systems: consultation notes, texture mapping, color history, finishing preferences, and aftercare guidance saved for every guest.</p></div>
+      </div>
+    </section>
+
+
+    <section id="services" class="relative px-5 py-24 sm:px-8 lg:px-10">
+      <div class="section-accent accent-services" aria-hidden="true"><i data-lucide="brush"></i><i data-lucide="star"></i><span></span><span></span></div>
+      <div class="reveal-up mx-auto max-w-3xl text-center">
+        <p class="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><i data-lucide="sparkles" class="h-4 w-4"></i> Our Services</p>
+        <h2 class="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Big-service salon care with clear choices.</h2>
+        <p class="mx-auto mt-5 max-w-2xl leading-8 text-white/70">Choose the result first. The barber or stylist can confirm timing and preparation after the request arrives.</p>
+      </div>
+      <div class="mx-auto mt-12 grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <article data-service="Men's precision cut" class="service-option reveal-up group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)] motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]">
+          <img class="h-44 w-full object-cover motion group-hover:scale-105" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=86" alt="Haircut service" />
+          <div class="p-5"><i data-lucide="scissors" class="mb-4 h-7 w-7 text-[#e4c277]"></i><h3 class="text-lg font-black">Precision Haircut</h3><p class="mt-2 text-sm leading-7 text-white/65">Shape, texture, neckline, wash, and finish.</p></div>
+        </article>
+        <article data-service="Color consultation" class="service-option reveal-up group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)] motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]">
+          <img class="h-44 w-full object-cover motion group-hover:scale-105" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=700&q=86" alt="Hair color service" />
+          <div class="p-5"><i data-lucide="palette" class="mb-4 h-7 w-7 text-[#e4c277]"></i><h3 class="text-lg font-black">Color Consultation</h3><p class="mt-2 text-sm leading-7 text-white/65">Tone planning, hair history, and shade direction.</p></div>
+        </article>
+        <article data-service="Beard sculpting" class="service-option reveal-up group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)] motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]">
+          <img class="h-44 w-full object-cover motion group-hover:scale-105" src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=700&q=86" alt="Beard grooming service" />
+          <div class="p-5"><i data-lucide="badge-check" class="mb-4 h-7 w-7 text-[#e4c277]"></i><h3 class="text-lg font-black">Beard Sculpting</h3><p class="mt-2 text-sm leading-7 text-white/65">Line-up, taper, hot towel detail, and shape.</p></div>
+        </article>
+        <article data-service="Full grooming package" class="service-option reveal-up group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)] motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]">
+          <img class="h-44 w-full object-cover motion group-hover:scale-105" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=86" alt="Full grooming service" />
+          <div class="p-5"><i data-lucide="wand-sparkles" class="mb-4 h-7 w-7 text-[#e4c277]"></i><h3 class="text-lg font-black">Full Grooming</h3><p class="mt-2 text-sm leading-7 text-white/65">Cut, beard, wash, finish, and product guidance.</p></div>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="team" class="relative px-5 py-24 sm:px-8 lg:px-10">
+      <div class="section-accent accent-team" aria-hidden="true"><i data-lucide="users"></i><i data-lucide="star"></i><span></span><span></span></div>
+      <div class="reveal-up mx-auto max-w-3xl text-center"><p class="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><i data-lucide="users" class="h-4 w-4"></i> Meet Our Barbers</p><h2 class="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Specialists behind the chair.</h2></div>
+      <div class="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
+        <article class="reveal-up rounded-[28px] border border-white/10 bg-white/[.07] p-4 text-center motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]"><img class="mx-auto h-52 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=520&q=86" alt="Marcus Hale" /><h3 class="mt-5 text-xl font-black">Marcus Hale</h3><p class="mt-1 text-sm font-black uppercase tracking-[.14em] text-[#e4c277]">Senior Barber</p><p class="mt-3 text-sm leading-7 text-white/65">Skin fades, beard structure, and executive grooming.</p></article>
+        <article class="reveal-up rounded-[28px] border border-white/10 bg-white/[.07] p-4 text-center motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]"><img class="mx-auto h-52 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=520&q=86" alt="Elena Voss" /><h3 class="mt-5 text-xl font-black">Elena Voss</h3><p class="mt-1 text-sm font-black uppercase tracking-[.14em] text-[#e4c277]">Color Specialist</p><p class="mt-3 text-sm leading-7 text-white/65">Dimensional brunette, glossy blondes, and soft correction.</p></article>
+        <article class="reveal-up rounded-[28px] border border-white/10 bg-white/[.07] p-4 text-center motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]"><img class="mx-auto h-52 w-full rounded-3xl object-cover" src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=520&q=86" alt="Noah Grant" /><h3 class="mt-5 text-xl font-black">Noah Grant</h3><p class="mt-1 text-sm font-black uppercase tracking-[.14em] text-[#e4c277]">Cut & Finish</p><p class="mt-3 text-sm leading-7 text-white/65">Textured shapes, long layers, blowout, and finish work.</p></article>
+      </div>
+    </section>
+    <section id="offer" class="relative px-5 py-16 sm:px-8 lg:px-10">
+      <div class="reveal-up mx-auto max-w-7xl overflow-hidden rounded-[34px] border border-[#c89a52]/35 bg-gradient-to-r from-[#2b1e17] via-[#3a241c] to-[#6f4a2d] p-8 text-center shadow-[0_30px_90px_rgba(11,7,5,.36)] md:p-12">
+        <p class="text-xs font-black uppercase tracking-[.2em] text-[#e4c277]">New client offer</p>
+        <h2 class="mx-auto mt-3 max-w-3xl font-display text-[clamp(34px,5vw,64px)] font-black leading-none text-white">Book a consultation before your first cut or color.</h2>
+        <p class="mx-auto mt-5 max-w-2xl leading-8 text-white/75">Send your request and the barber can confirm whether the selected service, date, and style direction are right before you visit.</p>
+        <a href="#booking" class="motion mt-7 inline-flex min-h-14 items-center justify-center rounded-full bg-[#e4c277] px-7 font-black text-[#18120f] hover:-translate-y-1">Start Booking</a>
+      </div>
+    </section>
+
+
+    <section id="testimonials" class="relative px-5 py-24 sm:px-8 lg:px-10">
+      <div class="section-accent accent-testimonials" aria-hidden="true"><i data-lucide="message-circle-heart"></i><i data-lucide="sparkles"></i><span></span></div>
+      <div class="reveal-up mx-auto max-w-3xl text-center"><p class="mb-3 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]">Testimonials</p><h2 class="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Clients leave ready for the week.</h2></div>
+      <div class="reveal-up mx-auto mt-12 max-w-4xl">
+        <div class="overflow-hidden rounded-[30px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)]">
+                    <div id="testimonialTrack" class="flex motion">
+            <div class="grid min-w-full gap-5 p-5 md:grid-cols-2 sm:p-6">
+              <blockquote class="rounded-[26px] bg-white/[.06] p-7 text-center"><img class="mx-auto mb-5 h-20 w-20 rounded-full border-4 border-[#e4c277]/50 object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=220&q=86" alt="Daniel K." /><p class="text-base leading-8 text-white/75">“Best fade I’ve had in years. They checked how I style my hair for work, fixed the neckline properly, and gave me a product suggestion that actually made sense. The cut still looked clean after two weeks.”</p><cite class="mt-5 block font-black not-italic text-[#e4c277]">Daniel K.</cite></blockquote>
+              <blockquote class="rounded-[26px] bg-white/[.06] p-7 text-center"><img class="mx-auto mb-5 h-20 w-20 rounded-full border-4 border-[#e4c277]/50 object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=220&q=86" alt="Amelia R." /><p class="text-base leading-8 text-white/75">“The color consultation felt premium and honest. They looked at my old dye, explained the warm tones, and suggested a softer plan instead of rushing me into bleach. I left trusting the process.”</p><cite class="mt-5 block font-black not-italic text-[#e4c277]">Amelia R.</cite></blockquote>
+            </div>
+            <div class="grid min-w-full gap-5 p-5 md:grid-cols-2 sm:p-6">
+              <blockquote class="rounded-[26px] bg-white/[.06] p-7 text-center"><img class="mx-auto mb-5 h-20 w-20 rounded-full border-4 border-[#e4c277]/50 object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=220&q=86" alt="Jonas M." /><p class="text-base leading-8 text-white/75">“Booking was simple, and the barber replied with a better time window the same day. The beard shape was clean without looking overdone, and the hot towel finish made it feel properly premium.”</p><cite class="mt-5 block font-black not-italic text-[#e4c277]">Jonas M.</cite></blockquote>
+              <blockquote class="rounded-[26px] bg-white/[.06] p-7 text-center"><img class="mx-auto mb-5 h-20 w-20 rounded-full border-4 border-[#e4c277]/50 object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=220&q=86" alt="Marco P." /><p class="text-base leading-8 text-white/75">“I came in with a vague reference and they translated it into a cut that fit my face and morning routine. The team feels calm, sharp, and very professional from start to finish.”</p><cite class="mt-5 block font-black not-italic text-[#e4c277]">Marco P.</cite></blockquote>
+            </div>
+          </div>        </div>
+        <div class="mt-5 flex items-center justify-center gap-3">
+          <button id="testimonialPrev" class="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 hover:-translate-y-0.5 hover:border-[#c89a52]/60" type="button" aria-label="Previous testimonial"><i data-lucide="chevron-left"></i></button>
+          <div id="testimonialDots" class="flex gap-2" aria-label="Testimonial slide indicators"></div>
+          <button id="testimonialNext" class="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 hover:-translate-y-0.5 hover:border-[#c89a52]/60" type="button" aria-label="Next testimonial"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="booking" class="relative px-5 py-24 sm:px-8 lg:px-10">
+      <div class="section-accent accent-booking" aria-hidden="true"><i data-lucide="calendar-days"></i><i data-lucide="mail"></i><span></span></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+        <div class="reveal-left text-center lg:text-left"><p class="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><i data-lucide="calendar-days" class="h-4 w-4"></i> Booking Appointment</p><h2 class="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Request a chair or consultation.</h2><p class="mx-auto mt-6 max-w-2xl leading-8 text-white/70 lg:mx-0">The form sends client details to the barber email through FormSubmit. After the first email confirmation, future booking requests should arrive in the inbox.</p><p id="selectedServiceNotice" class="mt-4 hidden rounded-2xl border border-[#c89a52]/40 bg-white/10 p-4 text-sm font-bold text-[#e4c277]"></p></div>
+        <form id="bookingForm" action="https://formsubmit.co/monniebcollins@gmail.com" method="POST" class="reveal-right rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-[0_34px_100px_rgba(11,7,5,.35)] backdrop-blur motion hover:border-[#c89a52]/40 sm:p-7">
+          <input type="hidden" name="_subject" value="New Veloura booking request" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div class="grid gap-4 md:grid-cols-2"><label class="form-label">Full name<input name="name" type="text" placeholder="Alex Morgan" required /></label><label class="form-label">Email<input name="email" type="email" placeholder="alex@email.com" required /></label></div>
+          <div class="grid gap-4 md:grid-cols-2"><label class="form-label">Phone<input name="phone" type="tel" placeholder="+44 7000 000000" /></label><label class="form-label">Service<select name="service" required><option value="">Select one</option><option>Men's precision cut</option><option>Women's cut and finish</option><option>Beard sculpting</option><option>Color consultation</option><option>Full grooming package</option></select></label></div>
+          <div class="grid gap-4 md:grid-cols-2"><label class="form-label">Preferred date<input name="date" type="date" required /></label><label class="form-label">Preferred time<input name="time" type="time" required /></label></div>
+          <label class="form-label">Appointment notes<textarea name="notes" rows="4" placeholder="Tell us hair length, target style, color history, or if this is just a consultation."></textarea></label>
+          <button type="submit" class="mt-3 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-6 font-black text-[#18120f] motion hover:-translate-y-1 hover:shadow-[0_26px_72px_rgba(200,154,82,.35)]">Send Booking Request <i data-lucide="mail" class="h-5 w-5"></i></button>
+          <p id="formStatus" class="mt-4 text-sm leading-7 text-white/60">Submits to monniebcollins@gmail.com using FormSubmit.</p>
+        </form>
+      </div>
+    </section>
+
+
+    <section id="blogs" class="relative px-5 py-24 sm:px-8 lg:px-10">
+      <div class="section-accent accent-blogs" aria-hidden="true"><i data-lucide="newspaper"></i><i data-lucide="pen-line"></i><span></span></div>
+      <div class="reveal-up mx-auto max-w-3xl text-center"><p class="mb-3 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]">Blogs</p><h2 class="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Style notes from the chair.</h2></div>
+      <div class="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
+        <article data-blog="cuts" class="blog-card reveal-up cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] motion hover:-translate-y-2 hover:border-[#c89a52]/60" tabindex="0" role="button"><img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=700&q=86" alt="Hair care products" /><div class="min-h-[190px] p-6"><h3 class="text-xl font-black">How often should you cut?</h3><p class="mt-3 text-sm leading-7 text-white/65">A simple guide based on hair length and style. Learn how fades, medium cuts, and longer shapes need different maintenance rhythms.</p></div></article>
+        <article data-blog="beard" class="blog-card reveal-up cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] motion hover:-translate-y-2 hover:border-[#c89a52]/60" tabindex="0" role="button"><img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=700&q=86" alt="Barber tools" /><div class="min-h-[190px] p-6"><h3 class="text-xl font-black">Beard shape by face type</h3><p class="mt-3 text-sm leading-7 text-white/65">What to ask for when you sit down. A subtle beard adjustment can sharpen the jaw, balance cheeks, or soften longer face shapes.</p></div></article>
+        <article data-blog="color" class="blog-card reveal-up cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] motion hover:-translate-y-2 hover:border-[#c89a52]/60" tabindex="0" role="button"><img class="h-56 w-full object-cover" src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=700&q=86" alt="Color styling" /><div class="min-h-[190px] p-6"><h3 class="text-xl font-black">Color consult checklist</h3><p class="mt-3 text-sm leading-7 text-white/65">Bring these details before changing tone. Color works best when the stylist knows your past dye, heat habits, and upkeep plan.</p></div></article>
+      </div>
+      <div id="blogDetail" class="reveal-up mx-auto mt-8 hidden max-w-4xl rounded-[28px] border border-[#c89a52]/40 bg-white/[.08] p-6 shadow-[0_24px_70px_rgba(11,7,5,.24)]">
+        <button id="blogClose" class="motion mb-4 inline-flex rounded-full border border-white/10 px-4 py-2 text-sm font-black text-[#e4c277] hover:-translate-y-0.5 hover:border-[#c89a52]/60" type="button">Close article</button>
+        <h3 id="blogTitle" class="font-display text-3xl font-black"></h3>
+        <p id="blogBody" class="mt-4 leading-8 text-white/70"></p>
+      </div>
+    </section>
+  </main>
+  <footer class="border-t border-white/10 px-5 py-12 sm:px-8 lg:px-10">
+    <div class="reveal-up mx-auto grid max-w-7xl gap-8 text-sm text-white/65 md:grid-cols-[1.2fr_.8fr_.8fr_1fr]">
+      <div>
+        <strong class="font-display text-3xl text-white">Veloura</strong>
+        <p class="mt-3 leading-7">Salon Atelier for modern cuts, careful color, beard grooming, and appointment-first service.</p>
+        <div class="mt-5 flex gap-3">
+          <a class="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-1 hover:border-[#c89a52]/60" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+          <a class="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-1 hover:border-[#c89a52]/60" href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+          <a class="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-1 hover:border-[#c89a52]/60" href="https://www.twitter.com/" target="_blank" rel="noreferrer" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+        </div>
+      </div>
+      <div><h3 class="font-black text-white">Explore</h3><div class="mt-4 grid gap-3"><a class="motion hover:text-[#e4c277]" href="#about">About</a><a class="motion hover:text-[#e4c277]" href="#services">Services</a><a class="motion hover:text-[#e4c277]" href="#team">Barbers</a><a class="motion hover:text-[#e4c277]" href="#booking">Booking</a></div></div>
+      <div><h3 class="font-black text-white">Hours</h3><p class="mt-4 leading-7">Tue - Sun<br />10:00 AM - 8:00 PM<br />Closed Monday</p></div>
+      <div><h3 class="font-black text-white">Contact</h3><p class="mt-4 leading-7">Booking mail:<br />monniebcollins@gmail.com</p><p class="mt-3 leading-7">123 Atelier Lane<br />London, UK</p></div>
+    </div>
+    <div class="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between"><p>© 2026 Veloura Salon Atelier. All rights reserved.</p><p>Designed for booking-first salon experiences.</p></div>
+  </footer>
+  <button id="toTopButton" type="button" class="motion fixed bottom-5 right-5 z-50 hidden h-12 w-12 place-items-center rounded-full border border-white/10 bg-[#e4c277] text-[#18120f] shadow-[0_18px_44px_rgba(11,7,5,.35)] hover:-translate-y-1" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
