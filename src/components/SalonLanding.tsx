@@ -251,7 +251,7 @@ export function SalonLanding() {
   return (
     <main ref={containerRef} className="overflow-hidden selection:bg-[#c89a52] selection:text-[#18120f]">
       <header className="surface fixed left-1/2 top-3 z-50 flex w-[min(1180px,calc(100%-24px))] -translate-x-1/2 items-center justify-between gap-3 rounded-full border border-white/10 bg-[#18120f]/80 p-2 shadow-[0_18px_70px_rgba(11,7,5,.45)] backdrop-blur-xl motion">
-        <button onClick={() => scrollTo("#home")} className="flex items-center gap-3 rounded-full motion hover:-translate-y-0.5" type="button">
+        <button onClick={() => scrollTo("#home")} className="flex items-center gap-3 rounded-full motion cursor-pointer hover:-translate-y-0.5" type="button">
           <span className="grid h-11 w-11 place-items-center rounded-full border border-[#c89a52]/60 bg-white/10 font-black text-[#e4c277]">V</span>
           <span className="leading-none text-left">
             <span className="block font-display text-xl font-black">Veloura</span>
@@ -267,19 +267,19 @@ export function SalonLanding() {
             ["Booking", "#booking"],
             ["Blogs", "#blogs"],
           ].map(([label, href]) => (
-            <button key={href} onClick={() => scrollTo(href)} className="nav-link" type="button">
+            <button key={href} onClick={() => scrollTo(href)} className="nav-link cursor-pointer" type="button">
               {label}
             </button>
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <button className="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-0.5 hover:border-[#c89a52]/60" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme" type="button">
+          <button className="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] cursor-pointer hover:-translate-y-0.5 cursor-pointer hover:border-[#c89a52]/60" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme" type="button">
             {theme === "dark" ? <Sun /> : <Moon />}
           </button>
-          <button onClick={() => scrollTo("#booking")} className="hidden rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-5 py-3 text-sm font-black text-[#18120f] shadow-[0_16px_36px_rgba(200,154,82,.25)] motion hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(200,154,82,.38)] sm:inline-flex" type="button">
+          <button onClick={() => scrollTo("#booking")} className="hidden rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-5 py-3 text-sm font-black text-[#18120f] shadow-[0_16px_36px_rgba(200,154,82,.25)] motion cursor-pointer hover:-translate-y-1 cursor-pointer hover:shadow-[0_20px_50px_rgba(200,154,82,.38)] sm:inline-flex" type="button">
             Book Now
           </button>
-          <button id="menuButton" type="button" className="hamburger grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 motion hover:-translate-y-0.5 hover:border-[#c89a52]/60 md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
+          <button id="menuButton" type="button" className="hamburger grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 motion cursor-pointer hover:-translate-y-0.5 cursor-pointer hover:border-[#c89a52]/60 md:hidden" aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
             <span />
             <span />
             <span />
@@ -291,18 +291,18 @@ export function SalonLanding() {
         <SectionAccent kind="hero" />
         <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[.95fr_1.05fr]">
           <div className="reveal-left relative z-10 text-center lg:text-left">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[.18em] text-[#e4c277] backdrop-blur motion hover:-translate-y-0.5 hover:border-[#c89a52]/60"><Sparkles className="h-4 w-4" /> Cuts, color, grooming</div>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[.18em] text-[#e4c277] backdrop-blur motion cursor-pointer hover:-translate-y-0.5 cursor-pointer hover:border-[#c89a52]/60"><Sparkles className="h-4 w-4" /> Cuts, color, grooming</div>
             <h1 className="font-display text-[clamp(42px,6vw,80px)] font-black leading-[.98] tracking-normal text-balance">A polished salon visit, made easy to book.</h1>
             <p className="muted mx-auto mt-6 max-w-2xl text-base leading-8 text-white/70 lg:mx-0">Precision cuts, dimensional color, beard sculpting, and consultation-first service for clients who want to look sharp without guessing.</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-              <button onClick={() => scrollTo("#booking")} className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-6 font-black text-[#18120f] shadow-[0_22px_70px_rgba(200,154,82,.25)] motion hover:-translate-y-1" type="button">Reserve Chair <ArrowUpRight className="h-5 w-5" /></button>
-              <button onClick={() => scrollTo("#services")} className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 font-black text-white backdrop-blur motion hover:-translate-y-1 hover:border-[#c89a52]/60 hover:bg-white/15" type="button">View Services</button>
+              <button onClick={() => scrollTo("#booking")} className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-6 font-black text-[#18120f] shadow-[0_22px_70px_rgba(200,154,82,.25)] motion cursor-pointer hover:-translate-y-1" type="button">Reserve Chair <ArrowUpRight className="h-5 w-5" /></button>
+              <button onClick={() => scrollTo("#services")} className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 font-black text-white backdrop-blur motion cursor-pointer hover:-translate-y-1 cursor-pointer hover:border-[#c89a52]/60 cursor-pointer hover:bg-white/15" type="button">View Services</button>
             </div>
           </div>
           <div className="reveal-right relative min-h-[430px] lg:min-h-[620px]">
-            <img className="absolute left-[8%] top-[5%] h-[78%] w-[78%] rounded-[30px] border border-white/10 object-cover shadow-[0_34px_100px_rgba(11,7,5,.46)] motion hover:scale-[1.015]" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1300&q=88" alt="Elegant salon interior" />
-            <img className="absolute right-0 top-0 w-[38%] rounded-3xl border-[7px] border-[#241a15] object-cover shadow-2xl motion hover:-translate-y-2 hover:rotate-2" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=520&q=86" alt="Salon tools" />
-            <img className="absolute bottom-0 left-0 w-[42%] rounded-3xl border-[7px] border-[#241a15] object-cover shadow-2xl motion hover:translate-y-2 hover:-rotate-2" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=520&q=86" alt="Barber styling hair" />
+            <img className="absolute left-[8%] top-[5%] h-[78%] w-[78%] rounded-[30px] border border-white/10 object-cover shadow-[0_34px_100px_rgba(11,7,5,.46)] motion cursor-pointer hover:scale-[1.015]" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1300&q=88" alt="Elegant salon interior" />
+            <img className="absolute right-0 top-0 w-[38%] rounded-3xl border-[7px] border-[#241a15] object-cover shadow-2xl motion cursor-pointer hover:-translate-y-2 cursor-pointer hover:rotate-2" src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=520&q=86" alt="Salon tools" />
+            <img className="absolute bottom-0 left-0 w-[42%] rounded-3xl border-[7px] border-[#241a15] object-cover shadow-2xl motion cursor-pointer hover:translate-y-2 cursor-pointer hover:-rotate-2" src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=520&q=86" alt="Barber styling hair" />
           </div>
         </div>
       </section>
@@ -310,7 +310,7 @@ export function SalonLanding() {
       <section id="about" className="relative px-5 py-24 sm:px-8 lg:px-10">
         <SectionAccent kind="about" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
-          <div className="reveal-left relative"><img className="aspect-[.9] w-full rounded-[30px] border border-white/10 object-cover shadow-[0_34px_100px_rgba(11,7,5,.42)] motion hover:scale-[1.015]" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1000&q=86" alt="Salon artist styling hair" /></div>
+          <div className="reveal-left relative"><img className="aspect-[.9] w-full rounded-[30px] border border-white/10 object-cover shadow-[0_34px_100px_rgba(11,7,5,.42)] motion cursor-pointer hover:scale-[1.015]" src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&w=1000&q=86" alt="Salon artist styling hair" /></div>
           <div className="reveal-right"><p className="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><Gem className="h-4 w-4" /> About Veloura</p><h2 className="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Designed like a private atelier. Run like a serious business.</h2><p className="muted mt-6 max-w-2xl leading-8 text-white/70">Veloura pairs editorial taste with practical systems: consultation notes, texture mapping, color history, finishing preferences, and aftercare guidance saved for every guest.</p></div>
         </div>
       </section>
@@ -322,8 +322,8 @@ export function SalonLanding() {
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <article key={service.value} onClick={() => chooseService(service.value)} className={`service-option reveal-up group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)] motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1] ${selectedService === service.value ? "is-selected" : ""}`}>
-                <img className="h-56 w-full object-cover motion group-hover:scale-105" src={service.image} alt={service.title} />
+              <article key={service.value} onClick={() => chooseService(service.value)} className={`service-option reveal-up group cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] shadow-[0_24px_70px_rgba(11,7,5,.25)] motion cursor-pointer hover:-translate-y-2 cursor-pointer hover:border-[#c89a52]/60 cursor-pointer hover:bg-white/[.1] ${selectedService === service.value ? "is-selected" : ""}`}>
+                <img className="h-56 w-full object-cover motion group-cursor-pointer hover:scale-105" src={service.image} alt={service.title} />
                 <div className="p-5"><Icon className="mb-4 h-7 w-7 text-[#e4c277]" /><h3 className="text-lg font-black">{service.title}</h3><p className="muted mt-2 text-sm leading-7 text-white/65">{service.text}</p></div>
               </article>
             );
@@ -336,7 +336,7 @@ export function SalonLanding() {
         <div className="reveal-up mx-auto max-w-3xl text-center"><p className="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><Users className="h-4 w-4" /> Meet Our Barbers</p><h2 className="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Specialists behind the chair.</h2></div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
           {team.map((member) => (
-            <article key={member.name} className="reveal-up rounded-[28px] border border-white/10 bg-white/[.07] p-4 text-center motion hover:-translate-y-2 hover:border-[#c89a52]/60 hover:bg-white/[.1]"><img className="mx-auto h-52 w-full rounded-3xl object-cover" src={member.image} alt={member.name} /><h3 className="mt-5 text-xl font-black">{member.name}</h3><p className="mt-1 text-sm font-black uppercase tracking-[.14em] text-[#e4c277]">{member.role}</p><p className="muted mt-3 text-sm leading-7 text-white/65">{member.specialty}</p></article>
+            <article key={member.name} className="reveal-up rounded-[28px] border border-white/10 bg-white/[.07] p-4 text-center motion cursor-pointer hover:-translate-y-2 cursor-pointer hover:border-[#c89a52]/60 cursor-pointer hover:bg-white/[.1]"><img className="mx-auto h-52 w-full rounded-3xl object-cover" src={member.image} alt={member.name} /><h3 className="mt-5 text-xl font-black">{member.name}</h3><p className="mt-1 text-sm font-black uppercase tracking-[.14em] text-[#e4c277]">{member.role}</p><p className="muted mt-3 text-sm leading-7 text-white/65">{member.specialty}</p></article>
           ))}
         </div>
       </section>
@@ -346,7 +346,7 @@ export function SalonLanding() {
           <p className="text-xs font-black uppercase tracking-[.2em] text-[#e4c277]">New client offer</p>
           <h2 className="mx-auto mt-3 max-w-3xl font-display text-[clamp(34px,5vw,64px)] font-black leading-none text-white">Book a consultation before your first cut or color.</h2>
           <p className="mx-auto mt-5 max-w-2xl leading-8 text-white/75">Send your request and the barber can confirm whether the selected service, date, and style direction are right before you visit.</p>
-          <button onClick={() => scrollTo("#booking")} className="motion mt-7 inline-flex min-h-14 items-center justify-center rounded-full bg-[#e4c277] px-7 font-black text-[#18120f] hover:-translate-y-1" type="button">Start Booking</button>
+          <button onClick={() => scrollTo("#booking")} className="motion mt-7 inline-flex min-h-14 items-center justify-center rounded-full bg-[#e4c277] px-7 font-black text-[#18120f] cursor-pointer hover:-translate-y-1" type="button">Start Booking</button>
         </div>
       </section>
 
@@ -366,9 +366,9 @@ export function SalonLanding() {
             </div>
           </div>
           <div className="mt-5 flex items-center justify-center gap-3">
-            <button onClick={() => setTestimonialIndex((testimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length)} className="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 hover:-translate-y-0.5 hover:border-[#c89a52]/60" type="button" aria-label="Previous testimonial"><ChevronLeft /></button>
+            <button onClick={() => setTestimonialIndex((testimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length)} className="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 cursor-pointer hover:-translate-y-0.5 cursor-pointer hover:border-[#c89a52]/60" type="button" aria-label="Previous testimonial"><ChevronLeft /></button>
             <div className="flex gap-2" aria-label="Testimonial slide indicators">{testimonialSlides.map((_, index) => <button key={index} onClick={() => setTestimonialIndex(index)} className={`motion h-2.5 w-2.5 rounded-full ${index === testimonialIndex ? "bg-[#e4c277]" : "bg-white/20"}`} aria-label={`Show testimonial ${index + 1}`} type="button" />)}</div>
-            <button onClick={() => setTestimonialIndex((testimonialIndex + 1) % testimonialSlides.length)} className="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 hover:-translate-y-0.5 hover:border-[#c89a52]/60" type="button" aria-label="Next testimonial"><ChevronRight /></button>
+            <button onClick={() => setTestimonialIndex((testimonialIndex + 1) % testimonialSlides.length)} className="motion grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/10 cursor-pointer hover:-translate-y-0.5 cursor-pointer hover:border-[#c89a52]/60" type="button" aria-label="Next testimonial"><ChevronRight /></button>
           </div>
         </div>
       </section>
@@ -376,8 +376,8 @@ export function SalonLanding() {
       <section id="booking" className="relative px-5 py-24 sm:px-8 lg:px-10">
         <SectionAccent kind="booking" />
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
-          <div className="reveal-left text-center lg:text-left"><p className="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><CalendarDays className="h-4 w-4" /> Booking Appointment</p><h2 className="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Request a chair or consultation.</h2><p className="muted mx-auto mt-6 max-w-2xl leading-8 text-white/70 lg:mx-0">The form sends client details to the barber email through FormSubmit. In a future Next.js backend, this can become a Server Action or API route.</p>{selectedService && <p className="mt-4 rounded-2xl border border-[#c89a52]/40 bg-white/10 p-4 text-sm font-bold text-[#e4c277]">{selectedService} has been added. Now fill up your info to submit the booking request.</p>}</div>
-          <form action="https://formsubmit.co/monniebcollins@gmail.com" method="POST" className="surface reveal-right rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-[0_34px_100px_rgba(11,7,5,.35)] backdrop-blur motion hover:border-[#c89a52]/40 sm:p-7">
+          <div className="reveal-left text-center lg:text-left"><p className="mb-3 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]"><CalendarDays className="h-4 w-4" /> Booking Appointment</p><h2 className="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Request a chair or consultation.</h2><p className="muted mx-auto mt-6 max-w-2xl leading-8 text-white/70 lg:mx-0">The form sends client details to the barber email through FormSubmit. In a future Next.js backend, this can become a Server Action or API route.</p>{selectedService && <p className="mt-4 rounded-2xl border border-[#c89a52]/40 bg-white/90 p-4 text-sm font-bold text-black">{selectedService} has been added. Now fill up your info to submit the booking request. ⚠</p>}</div>
+          <form action="https://formspree.io/f/xdoqqgny" method="POST" className="surface reveal-right rounded-[30px] border border-white/10 bg-white/[.07] p-5 shadow-[0_34px_100px_rgba(11,7,5,.35)] backdrop-blur motion cursor-pointer hover:border-[#c89a52]/40 sm:p-7">
             <input type="hidden" name="_subject" value="New Veloura booking request" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
@@ -385,8 +385,7 @@ export function SalonLanding() {
             <div className="grid gap-4 md:grid-cols-2"><label className="form-label">Phone<input className="form-field" name="phone" type="tel" placeholder="+44 7000 000000" /></label><label className="form-label">Service<select className="form-field" name="service" required value={selectedService} onChange={(event) => setSelectedService(event.target.value)}><option value="">Select one</option>{services.map((service) => <option key={service.value}>{service.value}</option>)}</select></label></div>
             <div className="grid gap-4 md:grid-cols-2"><label className="form-label">Preferred date<input className="form-field" name="date" type="date" required /></label><label className="form-label">Preferred time<input className="form-field" name="time" type="time" required /></label></div>
             <label className="form-label">Appointment notes<textarea className="form-field" name="notes" rows={4} placeholder="Tell us hair length, target style, color history, or if this is just a consultation." /></label>
-            <button type="submit" className="mt-3 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-6 font-black text-[#18120f] motion hover:-translate-y-1 hover:shadow-[0_26px_72px_rgba(200,154,82,.35)]">Send Booking Request <Mail className="h-5 w-5" /></button>
-            <p className="muted mt-4 text-sm leading-7 text-white/60">Submits to monniebcollins@gmail.com using FormSubmit. On Vercel, this should work after email activation.</p>
+            <button type="submit" className="mt-3 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e4c277] to-[#c89a52] px-6 font-black text-[#18120f] motion cursor-pointer hover:-translate-y-1 cursor-pointer hover:shadow-[0_26px_72px_rgba(200,154,82,.35)]">Send Booking Request <Mail className="h-5 w-5" /></button>
           </form>
         </div>
       </section>
@@ -396,26 +395,26 @@ export function SalonLanding() {
         <div className="reveal-up mx-auto max-w-3xl text-center"><p className="mb-3 text-xs font-black uppercase tracking-[.18em] text-[#e4c277]">Blogs</p><h2 className="font-display text-[clamp(36px,5vw,70px)] font-black leading-none">Style notes from the chair.</h2></div>
         <div className="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
           {(Object.keys(blogs) as BlogKey[]).map((key) => (
-            <article key={key} onClick={() => setActiveBlog(key)} className="reveal-up cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] motion hover:-translate-y-2 hover:border-[#c89a52]/60" role="button" tabIndex={0}>
+            <article key={key} onClick={() => setActiveBlog(key)} className="reveal-up cursor-pointer overflow-hidden rounded-[28px] border border-white/10 bg-white/[.07] motion cursor-pointer hover:-translate-y-2 cursor-pointer hover:border-[#c89a52]/60" role="button" tabIndex={0}>
               <img className="h-56 w-full object-cover" src={blogs[key].image} alt={blogs[key].title} />
               <div className="min-h-[190px] p-6"><h3 className="text-xl font-black">{blogs[key].title}</h3><p className="muted mt-3 text-sm leading-7 text-white/65">{blogs[key].preview}</p></div>
             </article>
           ))}
         </div>
-        {activeBlog && <div className="surface reveal-up is-visible mx-auto mt-8 max-w-4xl rounded-[28px] border border-[#c89a52]/40 bg-white/[.08] p-6 shadow-[0_24px_70px_rgba(11,7,5,.24)]"><button onClick={() => setActiveBlog(null)} className="motion mb-4 inline-flex rounded-full border border-white/10 px-4 py-2 text-sm font-black text-[#e4c277] hover:-translate-y-0.5 hover:border-[#c89a52]/60" type="button">Close article</button><h3 className="font-display text-3xl font-black">{blogs[activeBlog].title}</h3><p className="muted mt-4 leading-8 text-white/70">{blogs[activeBlog].body}</p></div>}
+        {activeBlog && <div className="surface reveal-up is-visible mx-auto mt-8 max-w-4xl rounded-[28px] border border-[#c89a52]/40 bg-white/[.08] p-6 shadow-[0_24px_70px_rgba(11,7,5,.24)]"><button onClick={() => setActiveBlog(null)} className="motion mb-4 inline-flex rounded-full border border-white/10 px-4 py-2 text-sm font-black text-[#e4c277] cursor-pointer hover:-translate-y-0.5 cursor-pointer hover:border-[#c89a52]/60" type="button">Close article</button><h3 className="font-display text-3xl font-black">{blogs[activeBlog].title}</h3><p className="muted mt-4 leading-8 text-white/70">{blogs[activeBlog].body}</p></div>}
       </section>
 
       <footer className="surface border-t border-white/10 px-5 py-12 sm:px-8 lg:px-10">
         <div className="reveal-up mx-auto grid max-w-7xl gap-8 text-sm text-white/65 md:grid-cols-[1.2fr_.8fr_.8fr_1fr]">
-          <div><strong className="font-display text-3xl text-white">Veloura</strong><p className="muted mt-3 leading-7">Salon Atelier for modern cuts, careful color, beard grooming, and appointment-first service.</p><div className="mt-5 flex gap-3"><a className="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-1 hover:border-[#c89a52]/60" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="3"/><path d="M17.5 6.5h.01"/></svg></a><a className="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-1 hover:border-[#c89a52]/60" href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a className="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] hover:-translate-y-1 hover:border-[#c89a52]/60" href="https://www.twitter.com/" target="_blank" rel="noreferrer" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43 1s-4.1 1.8-6.4 4.9A4.48 4.48 0 0 0 12 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a></div></div>
-          <div><h3 className="font-black text-white">Explore</h3><div className="mt-4 grid gap-3">{[["About", "#about"], ["Services", "#services"], ["Barbers", "#team"], ["Booking", "#booking"]].map(([label, href]) => <button key={href} className="motion text-left hover:text-[#e4c277]" onClick={() => scrollTo(href)} type="button">{label}</button>)}</div></div>
+          <div><strong className="font-display text-3xl text-white">Veloura</strong><p className="muted mt-3 leading-7">Salon Atelier for modern cuts, careful color, beard grooming, and appointment-first service.</p><div className="mt-5 flex gap-3"><a className="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] cursor-pointer hover:-translate-y-1 cursor-pointer hover:border-[#c89a52]/60" href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="3"/><path d="M17.5 6.5h.01"/></svg></a><a className="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] cursor-pointer hover:-translate-y-1 cursor-pointer hover:border-[#c89a52]/60" href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a className="motion grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/10 text-[#e4c277] cursor-pointer hover:-translate-y-1 cursor-pointer hover:border-[#c89a52]/60" href="https://www.twitter.com/" target="_blank" rel="noreferrer" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43 1s-4.1 1.8-6.4 4.9A4.48 4.48 0 0 0 12 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a></div></div>
+          <div><h3 className="font-black text-white">Explore</h3><div className="mt-4 grid gap-3">{[["About", "#about"], ["Services", "#services"], ["Barbers", "#team"], ["Booking", "#booking"]].map(([label, href]) => <button key={href} className="motion text-left cursor-pointer hover:text-[#e4c277]" onClick={() => scrollTo(href)} type="button">{label}</button>)}</div></div>
           <div><h3 className="font-black text-white">Hours</h3><p className="muted mt-4 leading-7">Tue - Sun<br />10:00 AM - 8:00 PM<br />Closed Monday</p></div>
           <div><h3 className="font-black text-white">Contact</h3><p className="muted mt-4 leading-7">Booking mail:<br />monniebcollins@gmail.com</p><p className="muted mt-3 leading-7">123 Atelier Lane<br />London, UK</p></div>
         </div>
         <div className="muted mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between"><p>Â© 2026 Veloura Salon Atelier. All rights reserved.</p><p>Designed for booking-first salon experiences.</p></div>
       </footer>
 
-      <button onClick={() => gsap.to(window, { duration: 0.8, scrollTo: { y: 0 }, ease: "power2.out" })} className={`motion fixed bottom-5 right-5 z-50 h-12 w-12 place-items-center rounded-full border border-white/10 bg-[#e4c277] text-[#18120f] shadow-[0_18px_44px_rgba(11,7,5,.35)] hover:-translate-y-1 ${showTop ? "grid" : "hidden"}`} aria-label="Back to top" type="button"><ArrowUp /></button>
+      <button onClick={() => gsap.to(window, { duration: 0.8, scrollTo: { y: 0 }, ease: "power2.out" })} className={`motion fixed bottom-5 right-5 z-50 h-12 w-12 place-items-center rounded-full border border-white/10 bg-[#e4c277] text-[#18120f] shadow-[0_18px_44px_rgba(11,7,5,.35)] cursor-pointer hover:-translate-y-1 ${showTop ? "grid" : "hidden"}`} aria-label="Back to top" type="button"><ArrowUp /></button>
     </main>
   );
 }
